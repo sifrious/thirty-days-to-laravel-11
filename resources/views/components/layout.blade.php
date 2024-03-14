@@ -11,9 +11,21 @@
 
 <body>
     <nav>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
+        <a href="/">
+            <x-nav-link>
+                Home
+            </x-nav-link>
+        </a>
+        <a href="/about">
+            <x-nav-link>
+                About
+            </x-nav-link>
+        </a>
+        <a href="/contact">
+            <x-nav-link>
+                Contact
+            </x-nav-link>
+        </a>
     </nav>
 
     {{-- <?php echo $slot; ?> --}}
