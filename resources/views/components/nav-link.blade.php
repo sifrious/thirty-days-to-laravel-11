@@ -1,1 +1,5 @@
-<div class="nav-link"> {{ $slot }} </div>
+<div class="nav-link">
+    <a {{ $attributes }}>
+        {{ $slot }}
+    </a>
+</div>
