@@ -15,6 +15,11 @@
         <a href="/about">About</a>
         <a href="/contact">Contact</a>
     </nav>
-    <h1>Hello From the Home Page</h1>
+
+    {{-- <?php echo $slot; ?> --}}
+    {{ $slot }}
+
+    {{-- create a Laravel component called nav-link (a file) and paste that anchor tag; 
+    you can't also paste the label for the anchor tag. That will need to be dynamic (use a slot). --}}
 </body>
 <html>
