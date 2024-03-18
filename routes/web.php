@@ -29,7 +29,7 @@ Route::get('/jobs/{id}', function ($id) {
         'salary' => '50,000'],
         ['id'=>2,
         'title' => 'Programmer',
-        'salary' => '10,000'],
+        'salary' => '10,000'],~
         ['id'=>3,
         'title' => 'Teacher',
         'salary' => '40,000']];
@@ -39,7 +39,9 @@ Route::get('/jobs/{id}', function ($id) {
     //     return $jobs['id'] == $id;
     // }
 
-    $job = Arr::first($jobs, fn($job) => $job['id'] == $id);
+    $job = Arr::first($jobs, 
+       fn($job) => $job['id'] == $id, 
+       fn() => abort(404));
 
-    return view('contact', ['job'=> $job]);
+    return view('job', ['job'=> $job]);
 });
