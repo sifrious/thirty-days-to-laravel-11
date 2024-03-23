@@ -6,8 +6,12 @@ use Illuminate\Support\Arr;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use function PHPSTORM_META\type;
+
 class Job extends Model
 {
+    protected $table = 'job_listings';
+
     use HasFactory;
     
     public static function allJobs():array
@@ -26,10 +30,16 @@ class Job extends Model
 
     public static function find(int $id):array
     {
-        $job = Arr::first(Job::allJobs(), 
+        $jobs = Job::all()->toArray();
+
+        $job = Arr::first($jobs, 
         fn($job) => $job['id'] == $id, 
         ['id'=>$id, 'title'=>'Not Found', 'salary'=>false]);
 
         return $job;
     }
 }
+
+// check out `$ php artisan make:model` and `$ php artisan help make:model`
+// --all, especially
+// work on it! get it under your fingertips and migrations!!
